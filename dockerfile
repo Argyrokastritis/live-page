@@ -10,7 +10,6 @@ COPY . /usr/share/nginx/html
 # Expose port
 EXPOSE 8080
 
-
 # Use $PORT for Cloud Run compatibility
 ENV PORT=8080
 CMD ["nginx", "-g", "daemon off;"]
