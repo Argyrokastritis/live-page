@@ -1,24 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to My Static Site</title>
+  <title>T Services & Web Solutions</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: #f0f0f0;
-    }
-    h1 {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
       color: #333;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #0066cc;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #004080;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Hello from Cloud Run!</h1>
-  <p>This is a static page deployed via container.</p>
-</body>
 
+  <header>
+    <h1>T Services & Web Solutions</h1>
+    <p>Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
+  </header>
+
+  <nav>
+    <a href="#home">Αρχική</a>
+    <a href="#services">Υπηρεσίες Web</a>
+    <a href="#lessons">Online Μαθήματα</a>
+    <a href="#studio">Ηχογραφήσεις & Studio</a>
+    <a href="#more">Περισσότερα</a>
+  </nav>
+
+  <section id="bio">
+    <h2>Βιογραφικό</h2>
+    <p>Ο Αργυροκαστρίτης Ιωάννης - Σπυρίδων είναι πτυχιούχος του πενταετούς τμήματος Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής του Πανεπιστημίου Πατρών (C.E.I.D) με Integrated Master στον τομέα της Μηχανικής των Υπολογιστών...</p>
+    <p>Τα έργα του μπορείτε να τα βρείτε σε αυτόν τον σύνδεσμο στο <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a>.</p>
+  </section>
+
+  <section id="bio-en">
+    <h2>Biography</h2>
+    <p>Graduate of the five-year Department of Computer Engineering and Informatics at the University of Patras (C.E.I.D)...</p>
+    <p>Portfolio of projects available on <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a>.</p>
+  </section>
+
+  <section id="vision">
+    <h2>Στόχος μου</h2>
+    <p>Το όραμά μου είναι να βοηθώ τους πελάτες μου προσφέροντας λύσεις σε θέματα web και ERP consulting...</p>
+  </section>
+
+  <section id="projects">
+    <h2>Ενδεικτικά Έργα</h2>
+    <ul>
+      <li>ERP Navision για ασφαλιστική εταιρεία</li>
+      <li>Libshare: Android εφαρμογή για ανταλλαγή συγγραμμάτων</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Αργυροκαστρίτης Ιωάννης-Σπυρίδων — All rights reserved 2023</p>
+    <p>Powered by Webnode Cookies</p>
+    <p>This website was made with Webnode. <a href="https://www.webnode.com">Create your own for free today!</a></p>
+  </footer>
+
+</body>
 </html>
+
