@@ -3,55 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Επικοινωνία | IT Services & Web Solutions</title>
+  <title>Επικοινωνία | IT Services and Web Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Georgia', serif;
       margin: 0;
-      background: #f9f9f9;
+      background: #fff;
       color: #333;
+      line-height: 1.5;
     }
+
     header {
-      background: #004080;
-      color: white;
-      padding: 20px;
+      text-align: center;
+      padding: 30px 10px;
+      background-color: white;
+    }
+
+    header img {
+      height: 80px;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-style: italic;
+      font-size: 2em;
+      margin: 10px 0 5px;
+    }
+
+    p.subtitle {
+      color: coral;
+      font-size: 1.2em;
+      margin: 0;
       text-align: center;
     }
+
     nav {
-      background: #0066cc;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       padding: 10px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
     }
+
     nav a {
-      color: white;
       text-decoration: none;
       font-weight: bold;
+      color: #888;
+      font-size: 0.95em;
     }
+
+    nav a[href="contact.html"] {
+      color: coral;
+    }
+
+    nav div {
+      position: relative;
+      display: inline-block;
+    }
+
+    nav div a[href="#"] {
+      cursor: pointer;
+    }
+
+    nav div div {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      min-width: 220px;
+      z-index: 1;
+    }
+
+    nav div div a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
     section {
-      padding: 30px;
       max-width: 900px;
       margin: auto;
+      padding: 20px;
     }
+
     h2 {
+      color: #000;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    p, ul {
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    ul li i {
+      margin-right: 8px;
       color: #004080;
     }
-    ul {
-      padding-left: 20px;
-    }
+
     form {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin-top: 20px;
     }
+
     input, textarea {
       padding: 10px;
       font-size: 1em;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+
     button {
       padding: 10px;
       background: #004080;
@@ -61,88 +139,104 @@
       cursor: pointer;
       font-weight: bold;
     }
+
     footer {
       background: #eee;
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
       color: #666;
+      margin-top: 40px;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Επικοινωνία</h1>
-    <p>Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
+    <img src="logo.png" alt="Logo" />
+    <h1>IT Services and Web Solutions</h1>
+    <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
   </header>
 
   <nav>
-  <a href="index.html">HOME</a>
-  <a href="web-services.html">WEB SERVICES</a>
-  <a href="online-lessons.html">ONLINE LESSONS</a>
-  <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
-
-  <div style="position: relative; display: inline-block;">
-    <a href="#" style="color: #888; font-weight: bold;">MORE ▾</a>
-    <div style="display: none; position: absolute; background-color: #fff; border: 1px solid #ccc; min-width: 220px; z-index: 1;">
-      <a href="pc-services.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">PC BUILDING AND REPAIRING SERVICES</a>
-      <a href="contact.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">CONTACT</a>
+    <a href="index.html">HOME</a>
+    <a href="web-services.html">WEB SERVICES</a>
+    <a href="online-lessons.html">ONLINE LESSONS</a>
+    <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+    <div>
+      <a href="#">MORE ▾</a>
+      <div>
+        <a href="pc-services.html">PC BUILDING AND REPAIRING SERVICES</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<script>
-  const moreLink = document.querySelector('nav div a[href="#"]');
-  const dropdown = moreLink.nextElementSibling;
+  <script>
+    const moreLink = document.querySelector('nav div a[href="#"]');
+    const dropdown = moreLink.nextElementSibling;
 
-  moreLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-  });
+    moreLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
 
-  document.addEventListener('click', function (e) {
-    if (!moreLink.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.style.display = 'none';
-    }
-  });
-</script>
+    document.addEventListener('click', function (e) {
+      if (!moreLink.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
 
   <section>
     <h2>Στοιχεία Επικοινωνίας</h2>
     <ul>
-      <li>📞 Κινητό Τηλέφωνο: 6995078541</li>
-      <li>📧 Email: giannisargurokastritis@gmail.com</li>
-      <li>💬 Skype: giannispolistas</li>
-      <li>🔗 Linktree: <a href="https://linktr.ee/argyrokastritis_ioannis" target="_blank">argyrokastritis_ioannis</a></li>
+      <li><i class="fas fa-phone"></i> 6995078541</li>
+      <li><i class="fas fa-envelope"></i> giannisargurokastritis@gmail.com</li>
+      <li><i class="fab fa-skype"></i> giannispolistas</li>
+      <li><i class="fas fa-link"></i> <a href="https://linktr.ee/argyrokastritis_ioannis" target="_blank">linktr.ee/argyrokastritis_ioannis</a></li>
     </ul>
 
     <h2>Follow Me</h2>
     <ul>
-      <li>🔗 <strong>LinkedIn:</strong> Αργυροκαστρίτης Ιωάννης - Σπυρίδων</li>
-      <li>🔗 <strong>Facebook:</strong> Γιάννης Αργυροκαστρίτης</li>
-      <li>🔗 <strong>Instagram:</strong> giannis_argirokastritis</li>
-      <li>🔗 <strong>YouTube:</strong> Αργυροκαστρίτης Ιωάννης - Σπυρίδων</li>
+      <li><i class="fab fa-github"></i> <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a></li>
+      <li><i class="fab fa-linkedin"></i> <a href="#" target="_blank">LinkedIn</a></li>
+      <li><i class="fab fa-facebook"></i> <a href="#" target="_blank">Facebook</a></li>
+      <li><i class="fab fa-instagram"></i> <a href="#" target="_blank">Instagram</a></li>
+      <li><i class="fab fa-youtube"></i> <a href="#" target="_blank">YouTube</a></li>
     </ul>
 
     <h2>Φόρμα Επικοινωνίας</h2>
-    <p>Επικοινωνήστε μαζί μας είτε καλώντας μας απευθείας είτε μέσω μηνυμάτων στα social media είτε συμπληρώνοντας την παρακάτω φόρμα:</p>
-
     <form>
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Email" required />
       <textarea rows="5" placeholder="Message" required></textarea>
       <button type="submit">Submit</button>
     </form>
-
-    <h2>Σύντομο Βιογραφικό</h2>
-    <p>Ο Ιωάννης-Σπυρίδων Αργυροκαστρίτης είναι πτυχιούχος του τμήματος Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής του Πανεπιστημίου Πατρών. Έχει γεννηθεί στην Πάτρα στις 22/02/2000 και έκτοτε διαμένει στην Πάτρα. Έχει εμπειρία στην εκπόνηση φοιτητικών εργασιών και στη διδασκαλία σε όλες τις βαθμίδες. Τον τελευταίο χρόνο εργάστηκε στην Ergologic ως Developer στο τμήμα Dynamics της Microsoft και δραστηριοποιείται με την επιχείρηση Argyrokastritis IT Services.</p>
   </section>
 
   <footer>
-    <p>Αργυροκαστρίτης Ιωάννης-Σπυρίδων — All rights reserved 2023</p>
-    <p>Powered by Webnode Cookies</p>
-    <p>This website was made with Webnode. <a href="https://www.webnode.com">Create your own for free today!</a></p>
+    <p style="text-align: center;">Αργυροκαστρίτης Ιωάννης-Σπυρίδων — All rights reserved 2023</p>
+    <p style="text-align: center;">Powered by Webnode Cookies</p>
+    <p style="text-align: center;">
+      This website was made with Webnode. 
+      <a href="https://www.webnode.com" target="_blank">Create your own for free today!</a>
+    </p>
   </footer>
 
 </body>
