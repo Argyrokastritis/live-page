@@ -6,17 +6,27 @@
   <title>Επικοινωνία | IT Services and Web Solutions</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    
-    
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
     body {
       font-family: 'Georgia', serif;
-      margin: 0;
       background-image: url('background.png');
       background-repeat: repeat;
       background-size: 400px;
       background-color: #fff;
       color: #333;
       line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -52,6 +62,7 @@
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       margin-bottom: 20px;
+      position: relative;
     }
 
     nav a {
@@ -65,25 +76,32 @@
       color: coral;
     }
 
-    nav div {
+    .dropdown-container {
       position: relative;
       display: inline-block;
     }
 
-    nav div a[href="#"] {
+    .dropdown-toggle {
       cursor: pointer;
+      font-weight: bold;
+      color: #888;
     }
 
-    nav div div {
-      display: none;
+    .dropdown {
       position: absolute;
+      top: 100%;
+      left: 0;
       background-color: #fff;
       border: 1px solid #ccc;
       min-width: 220px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
       z-index: 1;
     }
 
-    nav div div a {
+    .dropdown a {
       display: block;
       padding: 10px;
       text-decoration: none;
@@ -151,7 +169,6 @@
       padding: 20px;
       font-size: 0.9em;
       color: #666;
-      margin-top: 40px;
     }
 
     @media screen and (max-width: 600px) {
@@ -172,72 +189,77 @@
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Logo" />
-    <h1>IT Services and Web Solutions</h1>
-    <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
-  </header>
+  <div class="wrapper">
+    <header>
+      <img src="logo.png" alt="Logo" />
+      <h1>IT Services and Web Solutions</h1>
+      <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
+    </header>
 
-  <nav>
-    <a href="index.html">HOME</a>
-    <a href="web-services.html">WEB SERVICES</a>
-    <a href="online-lessons.html">ONLINE LESSONS</a>
-    <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
-    <div>
-      <a href="#">MORE ▾</a>
-      <div>
-        <a href="pc-services.html">PC BUILDING AND REPAIRING SERVICES</a>
-        <a href="contact.html">CONTACT</a>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="web-services.html">WEB SERVICES</a>
+      <a href="online-lessons.html">ONLINE LESSONS</a>
+      <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+      <div class="dropdown-container">
+        <a href="#" class="dropdown-toggle">MORE ▾</a>
+        <div class="dropdown">
+          <a href="pc-services.html">PC BUILDING AND REPAIRING SERVICES</a>
+          <a href="contact.html">CONTACT</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <script>
-    const moreLink = document.querySelector('nav div a[href="#"]');
-    const dropdown = moreLink.nextElementSibling;
+    <section>
+      <h2>Στοιχεία Επικοινωνίας</h2>
+      <ul>
+        <li><i class="fas fa-phone"></i> 6995078541</li>
+        <li><i class="fas fa-envelope"></i> giannisargurokastritis@gmail.com</li>
+        <li><i class="fab fa-skype"></i> giannispolistas</li>
+        <li><i class="fas fa-link"></i> <a href="https://linktr.ee/argyrokastritis_ioannis" target="_blank">linktr.ee/argyrokastritis_ioannis</a></li>
+      </ul>
 
-    moreLink.addEventListener('click', function (e) {
-      e.preventDefault();
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    });
+      <h2>Follow Me</h2>
+      <ul>
+        <li><i class="fab fa-github"></i> <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a></li>
+        <li><i class="fab fa-linkedin"></i> <a href="#" target="_blank">LinkedIn</a></li>
+        <li><i class="fab fa-facebook"></i> <a href="#" target="_blank">Facebook</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="#" target="_blank">Instagram</a></li>
+        <li><i class="fab fa-youtube"></i> <a href="#" target="_blank">YouTube</a></li>
+      </ul>
 
-    document.addEventListener('click', function (e) {
-      if (!moreLink.contains(e.target) && !dropdown.contains(e.target)) {
-        dropdown.style.display = 'none';
-      }
-    });
-  </script>
-
-  <section>
-    <h2>Στοιχεία Επικοινωνίας</h2>
-    <ul>
-      <li><i class="fas fa-phone"></i> 6995078541</li>
-      <li><i class="fas fa-envelope"></i> giannisargurokastritis@gmail.com</li>
-      <li><i class="fab fa-skype"></i> giannispolistas</li>
-      <li><i class="fas fa-link"></i> <a href="https://linktr.ee/argyrokastritis_ioannis" target="_blank">linktr.ee/argyrokastritis_ioannis</a></li>
-    </ul>
-
-    <h2>Follow Me</h2>
-    <ul>
-      <li><i class="fab fa-github"></i> <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a></li>
-      <li><i class="fab fa-linkedin"></i> <a href="#" target="_blank">LinkedIn</a></li>
-      <li><i class="fab fa-facebook"></i> <a href="#" target="_blank">Facebook</a></li>
-      <li><i class="fab fa-instagram"></i> <a href="#" target="_blank">Instagram</a></li>
-      <li><i class="fab fa-youtube"></i> <a href="#" target="_blank">YouTube</a></li>
-    </ul>
-
-    <h2>Φόρμα Επικοινωνίας</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Email" required />
-      <textarea rows="5" placeholder="Message" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </section>
+      <h2>Φόρμα Επικοινωνίας</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea rows="5" placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </div>
 
   <footer>
     <p style="text-align: center;">Αργυροκαστρίτης Ιωάννης-Σπυρίδων — All rights reserved 2023</p>
   </footer>
+
+  <script>
+    const toggle = document.querySelector('.dropdown-toggle');
+    const dropdown = document.querySelector('.dropdown');
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== '0px';
+      dropdown.style.maxHeight = isOpen ? '0px' : dropdown.scrollHeight + 'px';
+      dropdown.style.opacity = isOpen ? '0' : '1';
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.maxHeight = '0px';
+        dropdown.style.opacity = '0';
+      }
+    });
+  </script>
 
 </body>
 </html>

@@ -5,15 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PC Building & Repairing | IT Services and Web Solutions</title>
   <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+
     body {
       font-family: 'Georgia', serif;
-      margin: 0;
       background-image: url('background.png');
       background-repeat: repeat;
       background-size: 400px;
       background-color: #fff;
       color: #333;
       line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -49,6 +61,7 @@
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       margin-bottom: 20px;
+      position: relative;
     }
 
     nav a {
@@ -62,25 +75,32 @@
       color: coral;
     }
 
-    nav div {
+    .dropdown-container {
       position: relative;
       display: inline-block;
     }
 
-    nav div a[href="#"] {
+    .dropdown-toggle {
       cursor: pointer;
+      font-weight: bold;
+      color: #888;
     }
 
-    nav div div {
-      display: none;
+    .dropdown {
       position: absolute;
+      top: 100%;
+      left: 0;
       background-color: #fff;
       border: 1px solid #ccc;
       min-width: 220px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
       z-index: 1;
     }
 
-    nav div div a {
+    .dropdown a {
       display: block;
       padding: 10px;
       text-decoration: none;
@@ -116,7 +136,6 @@
       padding: 20px;
       font-size: 0.9em;
       color: #666;
-      margin-top: 40px;
     }
 
     @media screen and (max-width: 600px) {
@@ -137,67 +156,72 @@
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Logo" />
-    <h1>IT Services and Web Solutions</h1>
-    <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
-  </header>
+  <div class="wrapper">
+    <header>
+      <img src="logo.png" alt="Logo" />
+      <h1>IT Services and Web Solutions</h1>
+      <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
+    </header>
 
-  <nav>
-    <a href="index.html">HOME</a>
-    <a href="web-services.html">WEB SERVICES</a>
-    <a href="online-lessons.html">ONLINE LESSONS</a>
-    <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
-    <div>
-      <a href="#" style="font-weight: bold;">MORE ▾</a>
-      <div>
-        <a href="pc-services.html">PC BUILDING AND REPAIRING SERVICES</a>
-        <a href="contact.html">CONTACT</a>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="web-services.html">WEB SERVICES</a>
+      <a href="online-lessons.html">ONLINE LESSONS</a>
+      <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+      <div class="dropdown-container">
+        <a href="#" class="dropdown-toggle">MORE ▾</a>
+        <div class="dropdown">
+          <a href="pc-services.html">PC BUILDING AND REPAIRING SERVICES</a>
+          <a href="contact.html">CONTACT</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <script>
-    const moreLink = document.querySelector('nav div a[href="#"]');
-    const dropdown = moreLink.nextElementSibling;
+    <section>
+      <h2>Υπηρεσίες PC Building & Repairing</h2>
+      <p>Με εμπειρία από σπουδές και πρακτική βοήθεια σε φίλους και πελάτες, παρέχω υπηρεσίες αντικατάστασης και επιδιόρθωσης υπολογιστών σε προσιτές τιμές.</p>
 
-    moreLink.addEventListener('click', function (e) {
-      e.preventDefault();
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    });
+      <h2>Αντικατάσταση Τμημάτων Υπολογιστή</h2>
+      <ul>
+        <li>CPU: 10€</li>
+        <li>RAM: 3€ ανά μονάδα</li>
+        <li>Κάρτα γραφικών: 10€</li>
+        <li>Μητρική πλακέτα: 10€</li>
+        <li>Δίσκοι: 3€</li>
+        <li>Ανεμιστήρες: 5€</li>
+      </ul>
+      <p>Αν αλλάξετε όλα τα εσωτερικά μέρη, το κόστος δεν θα ξεπεράσει τα 40€, συμπεριλαμβανομένης της μεταφοράς αρχείων.</p>
 
-    document.addEventListener('click', function (e) {
-      if (!moreLink.contains(e.target) && !dropdown.contains(e.target)) {
-        dropdown.style.display = 'none';
-      }
-    });
-  </script>
+      <h2>Χτίσιμο Νέου Υπολογιστή</h2>
+      <p>Ανάλυση αναγκών και εύρεση εξαρτημάτων από διεθνή αγορά με έως 30% χαμηλότερες τιμές. Κόστος εργασίας: 60€ για 4–5 ώρες εγκατάστασης και ρύθμισης Windows.</p>
 
-  <section>
-    <h2>Υπηρεσίες PC Building & Repairing</h2>
-    <p>Με εμπειρία από σπουδές και πρακτική βοήθεια σε φίλους και πελάτες, παρέχω υπηρεσίες αντικατάστασης και επιδιόρθωσης υπολογιστών σε προσιτές τιμές.</p>
-
-    <h2>Αντικατάσταση Τμημάτων Υπολογιστή</h2>
-    <ul>
-      <li>CPU: 10€</li>
-      <li>RAM: 3€ ανά μονάδα</li>
-      <li>Κάρτα γραφικών: 10€</li>
-      <li>Μητρική πλακέτα: 10€</li>
-      <li>Δίσκοι: 3€</li>
-      <li>Ανεμιστήρες: 5€</li>
-    </ul>
-    <p>Αν αλλάξετε όλα τα εσωτερικά μέρη, το κόστος δεν θα ξεπεράσει τα 40€, συμπεριλαμβανομένης της μεταφοράς αρχείων.</p>
-
-    <h2>Χτίσιμο Νέου Υπολογιστή</h2>
-    <p>Ανάλυση αναγκών και εύρεση εξαρτημάτων από διεθνή αγορά με έως 30% χαμηλότερες τιμές. Κόστος εργασίας: 60€ για 4–5 ώρες εγκατάστασης και ρύθμισης Windows.</p>
-
-    <h2>Συμβουλευτική & Πληροφορίες</h2>
-    <p>Μικρής διάρκειας συμβουλές (&lt;30 λεπτά) παρέχονται δωρεάν. Για εξειδικευμένη εκπαίδευση: 15€/ώρα.</p>
-  </section>
+      <h2>Συμβουλευτική & Πληροφορίες</h2>
+      <p>Μικρής διάρκειας συμβουλές (&lt;30 λεπτά) παρέχονται δωρεάν. Για εξειδικευμένη εκπαίδευση: 15€/ώρα.</p>
+    </section>
+  </div>
 
   <footer>
     <p style="text-align: center;">Αργυροκαστρίτης Ιωάννης-Σπυρίδων — All rights reserved 2023</p>
   </footer>
+
+  <script>
+    const toggle = document.querySelector('.dropdown-toggle');
+    const dropdown = document.querySelector('.dropdown');
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== '0px';
+      dropdown.style.maxHeight = isOpen ? '0px' : dropdown.scrollHeight + 'px';
+      dropdown.style.opacity = isOpen ? '0' : '1';
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.maxHeight = '0px';
+        dropdown.style.opacity = '0';
+      }
+    });
+  </script>
 
 </body>
 </html>

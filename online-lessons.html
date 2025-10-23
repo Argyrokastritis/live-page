@@ -5,15 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Online Μαθήματα | IT Services and Web Solutions</title>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
     body {
       font-family: 'Georgia', serif;
-      margin: 0;
       background-image: url('background.png');
       background-repeat: repeat;
       background-size: 400px;
       background-color: #fff;
       color: #333;
       line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -49,6 +61,7 @@
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       margin-bottom: 20px;
+      position: relative;
     }
 
     nav a {
@@ -60,6 +73,38 @@
 
     nav a[href="online-lessons.html"] {
       color: coral;
+    }
+
+    .dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+      font-weight: bold;
+      color: #888;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      min-width: 220px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
     }
 
     section {
@@ -74,15 +119,13 @@
       margin-top: 40px;
     }
 
-    p {
+    p, ul {
       text-align: justify;
       margin-bottom: 20px;
     }
 
     ul {
-      text-align: justify;
       padding-left: 20px;
-      margin-bottom: 20px;
     }
 
     footer {
@@ -91,7 +134,6 @@
       padding: 20px;
       font-size: 0.9em;
       color: #666;
-      margin-top: 40px;
     }
 
     @media screen and (max-width: 600px) {
@@ -112,58 +154,62 @@
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Logo" />
-    <h1>IT Services and Web Solutions</h1>
-    <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
-  </header>
+  <div class="wrapper">
+    <header>
+      <img src="logo.png" alt="Logo" />
+      <h1>IT Services and Web Solutions</h1>
+      <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
+    </header>
 
-  <nav>
-  <a href="index.html">HOME</a>
-  <a href="web-services.html">WEB SERVICES</a>
-  <a href="online-lessons.html">ONLINE LESSONS</a>
-  <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="web-services.html">WEB SERVICES</a>
+      <a href="online-lessons.html">ONLINE LESSONS</a>
+      <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+      <div class="dropdown-container">
+        <a href="#" class="dropdown-toggle">MORE ▾</a>
+        <div class="dropdown">
+          <a href="pc-services.html">PC BUILDING AND REPAIRING SERVICES</a>
+          <a href="contact.html">CONTACT</a>
+        </div>
+      </div>
+    </nav>
 
-  <div style="position: relative; display: inline-block;">
-    <a href="#" style="color: #888; font-weight: bold;">MORE ▾</a>
-    <div style="display: none; position: absolute; background-color: #fff; border: 1px solid #ccc; min-width: 220px; z-index: 1;">
-      <a href="pc-services.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">PC BUILDING AND REPAIRING SERVICES</a>
-      <a href="contact.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">CONTACT</a>
-    </div>
+    <section>
+      <h2>Online Μαθήματα</h2>
+      <p>Παρέχω μαθήματα σε φοιτητές της σχολής Μηχανικών ΗΥ και Πληροφορικής του Πανεπιστημίου Πατρών και Ιωαννίνων, καθώς και βοήθεια σε μαθητές κάθε βαθμίδας σε μαθήματα που σχετίζονται με προγραμματιστικά projects.</p>
+
+      <ul>
+        <li>Project Δομών Δεδομένων, Αλγορίθμων, Web, Παράλληλης Επεξεργασίας, Αριθμητικής Ανάλυσης, Ψηφιακών Συστημάτων και Τηλεπικοινωνιών</li>
+        <li>Ηλεκτρονικά: Βασικά Ηλεκτρονικά (Θεωρία και Εργαστήρια), Ψηφιακά Ηλεκτρονικά, Εργαστήριο Σημάτων και Συστημάτων</li>
+        <li>Θεωρητικά Μαθήματα: Μαθηματικά 1 και 2, Αλγόριθμοι, Διακριτά Μαθηματικά, Γραμμική Άλγεβρα, Σύγχρονη Φυσική</li>
+        <li>Μαθήματα Λυκείου: Άλγεβρα Α και Β Λυκείου, Φυσική και Χημεία (Γενικής Παιδείας και Κατεύθυνσης), Μαθηματικά Β Λυκείου Κατεύθυνσης</li>
+      </ul>
+    </section>
   </div>
-</nav>
-
-<script>
-  const moreLink = document.querySelector('nav div a[href="#"]');
-  const dropdown = moreLink.nextElementSibling;
-
-  moreLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!moreLink.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.style.display = 'none';
-    }
-  });
-</script>
-
-  <section>
-    <h2>Online Μαθήματα</h2>
-    <p>Παρέχω μαθήματα σε φοιτητές της σχολής Μηχανικών ΗΥ και Πληροφορικής του Πανεπιστημίου Πατρών και Ιωαννίνων, καθώς και βοήθεια σε μαθητές κάθε βαθμίδας σε μαθήματα που σχετίζονται με προγραμματιστικά projects.</p>
-
-    <ul>
-      <li>Project Δομών Δεδομένων, Αλγορίθμων, Web, Παράλληλης Επεξεργασίας, Αριθμητικής Ανάλυσης, Ψηφιακών Συστημάτων και Τηλεπικοινωνιών</li>
-      <li>Ηλεκτρονικά: Βασικά Ηλεκτρονικά (Θεωρία και Εργαστήρια), Ψηφιακά Ηλεκτρονικά, Εργαστήριο Σημάτων και Συστημάτων</li>
-      <li>Θεωρητικά Μαθήματα: Μαθηματικά 1 και 2, Αλγόριθμοι, Διακριτά Μαθηματικά, Γραμμική Άλγεβρα, Σύγχρονη Φυσική</li>
-      <li>Μαθήματα Λυκείου: Άλγεβρα Α και Β Λυκείου, Φυσική και Χημεία (Γενικής Παιδείας και Κατεύθυνσης), Μαθηματικά Β Λυκείου Κατεύθυνσης</li>
-    </ul>
-  </section>
 
   <footer>
     <p style="text-align: center;">Αργυροκαστρίτης Ιωάννης-Σπυρίδων — All rights reserved 2023</p>
   </footer>
+
+  <script>
+    const toggle = document.querySelector('.dropdown-toggle');
+    const dropdown = document.querySelector('.dropdown');
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== '0px';
+      dropdown.style.maxHeight = isOpen ? '0px' : dropdown.scrollHeight + 'px';
+      dropdown.style.opacity = isOpen ? '0' : '1';
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.maxHeight = '0px';
+        dropdown.style.opacity = '0';
+      }
+    });
+  </script>
 
 </body>
 </html>

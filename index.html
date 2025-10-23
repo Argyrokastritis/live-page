@@ -5,15 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IT Services and Web Solutions</title>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
     body {
       font-family: 'Georgia', serif;
-      margin: 0;
       background-image: url('background.png');
       background-repeat: repeat;
       background-size: 400px;
       background-color: #fff;
       color: #333;
       line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -34,12 +46,11 @@
     }
 
     p.subtitle {
-    color: coral;
-    font-size: 1.2em;
-    margin: 0;
-    text-align: center;
-    } 
-
+      color: coral;
+      font-size: 1.2em;
+      margin: 0;
+      text-align: center;
+    }
 
     nav {
       display: flex;
@@ -50,6 +61,7 @@
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       margin-bottom: 20px;
+      position: relative;
     }
 
     nav a {
@@ -59,8 +71,40 @@
       font-size: 0.95em;
     }
 
-    nav a:first-child {
+    nav a[href="index.html"] {
       color: coral;
+    }
+
+    .dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+      font-weight: bold;
+      color: #888;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      min-width: 220px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
     }
 
     section {
@@ -93,7 +137,6 @@
       padding: 20px;
       font-size: 0.9em;
       color: #666;
-      margin-top: 40px;
     }
 
     @media screen and (max-width: 600px) {
@@ -114,60 +157,62 @@
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Logo" />
-    <h1>IT Services and Web Solutions</h1>
-    <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
-  </header>
+  <div class="wrapper">
+    <header>
+      <img src="logo.png" alt="Logo" />
+      <h1>IT Services and Web Solutions</h1>
+      <p class="subtitle">Αργυροκαστρίτης Ιωάννης-Σπυρίδων</p>
+    </header>
 
-  <nav>
-  <a href="index.html">HOME</a>
-  <a href="web-services.html">WEB SERVICES</a>
-  <a href="online-lessons.html">ONLINE LESSONS</a>
-  <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="web-services.html">WEB SERVICES</a>
+      <a href="online-lessons.html">ONLINE LESSONS</a>
+      <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+      <div class="dropdown-container">
+        <a href="#" class="dropdown-toggle">MORE ▾</a>
+        <div class="dropdown">
+          <a href="pc-services.html">PC BUILDING AND REPAIRING SERVICES</a>
+          <a href="contact.html">CONTACT</a>
+        </div>
+      </div>
+    </nav>
 
-  <div style="position: relative; display: inline-block;">
-    <a href="#" style="color: #888; font-weight: bold;">MORE ▾</a>
-    <div style="display: none; position: absolute; background-color: #fff; border: 1px solid #ccc; min-width: 220px; z-index: 1;">
-      <a href="pc-services.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">PC BUILDING AND REPAIRING SERVICES</a>
-      <a href="contact.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">CONTACT</a>
-    </div>
+    <section>
+      <img src="biography-image.png" alt="BIOGRAPHY" class="bio-image" />
+
+      <h2>Βιογραφικό</h2>
+      <p>Ο Αργυροκαστρίτης Ιωάννης - Σπυρίδων είναι πτυχιούχος του πενταετούς τμήματος Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής του Πανεπιστημίου Πατρών (C.E.I.D) με Integrated Master στον τομέα της Μηχανικής των Υπολογιστών. Με εμπειρία στα ERP συστήματα (Navision ERP) και στην ανάπτυξη web εφαρμογών τόσο για το frontend όσο και για το backend. Πρόθυμος να ενταχθεί σε μία αξιόπιστη εταιρεία για να ξεκινήσει μια παραγωγική, δια βίου καριέρα. Εκτεταμένες γνώσεις σε πολλούς τομείς της μηχανικής υπολογιστών, όπως αλγόριθμοι ταξινόμησης, δομές δεδομένων και σχεσιακές και μη σχεσιακές βάσεις δεδομένων (MySQL, MongoDB και Firebase)...</p>
+      <p>Τα έργα του μπορείτε να τα βρείτε σε αυτόν τον σύνδεσμο στο <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a>.</p>
+
+      <h2>Biography</h2>
+      <p>Graduate of the five-year Department of Computer Engineering and Informatics at the University of Patras (C.E.I.D), holding an Integrated Master's degree in Computer Engineering. Experienced in ERP systems (Navision ERP) and full stack web development (frontend and backend). Eager to join a reputable company to begin a productive, lifelong career. Also possesses extensive knowledge in various areas of computer engineering, including sorting algorithms, data structures, and both relational and non-relational databases (MySQL, MongoDB, Firebase)...</p>
+      <p>Portfolio of projects available on <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a>.</p>
+    </section>
   </div>
-</nav>
-
-<script>
-  const moreLink = document.querySelector('nav div a[href="#"]');
-  const dropdown = moreLink.nextElementSibling;
-
-  moreLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!moreLink.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.style.display = 'none';
-    }
-  });
-</script>
-
-
-  <section>
-    <img src="biography-image.png" alt="BIOGRAPHY" class="bio-image" />
-
-    <h2>Βιογραφικό</h2>
-    <p>Ο Αργυροκαστρίτης Ιωάννης - Σπυρίδων είναι πτυχιούχος του πενταετούς τμήματος Μηχανικών Ηλεκτρονικών Υπολογιστών και Πληροφορικής του Πανεπιστημίου Πατρών (C.E.I.D) με Integrated Master στον τομέα της Μηχανικής των Υπολογιστών. Με εμπειρία στα ERP συστήματα (Navision ERP) και στην ανάπτυξη web εφαρμογών τόσο για το frontend όσο και για το backend. Πρόθυμος να ενταχθεί σε μία αξιόπιστη εταιρεία για να ξεκινήσει μια παραγωγική, δια βίου καριέρα. Εκτεταμένες γνώσεις σε πολλούς τομείς της μηχανικής υπολογιστών, όπως αλγόριθμοι ταξινόμησης, δομές δεδομένων και σχεσιακές και μη σχεσιακές βάσεις δεδομένων (MySQL, MongoDB και Firebase)...</p>
-    <p>Τα έργα του μπορείτε να τα βρείτε σε αυτόν τον σύνδεσμο στο <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a>.</p>
-
-    <h2>Biography</h2>
-    <p>Graduate of the five-year Department of Computer Engineering and Informatics at the University of Patras (C.E.I.D), holding an Integrated Master's degree in Computer Engineering. Experienced in ERP systems (Navision ERP) and full stack web development (frontend and backend). Eager to join a reputable company to begin a productive, lifelong career. Also possesses extensive knowledge in various areas of computer engineering, including sorting algorithms, data structures, and both relational and non-relational databases (MySQL, MongoDB, Firebase)...</p>
-    <p>Portfolio of projects available on <a href="https://github.com/Argyrokastritis" target="_blank">GitHub</a>.</p>
-  </section>
 
   <footer>
     <p style="text-align: center;">Αργυροκαστρίτης Ιωάννης-Σπυρίδων — All rights reserved 2023</p>
   </footer>
 
+  <script>
+    const toggle = document.querySelector('.dropdown-toggle');
+    const dropdown = document.querySelector('.dropdown');
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== '0px';
+      dropdown.style.maxHeight = isOpen ? '0px' : dropdown.scrollHeight + 'px';
+      dropdown.style.opacity = isOpen ? '0' : '1';
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.maxHeight = '0px';
+        dropdown.style.opacity = '0';
+      }
+    });
+  </script>
 
 </body>
 </html>
