@@ -78,13 +78,35 @@
   </header>
 
   <nav>
-    <a href="index.html">Αρχική</a>
-    <a href="web-services.html">Υπηρεσίες Web</a>
-    <a href="online-lessons.html">Online Μαθήματα</a>
-    <a href="studio.html">Ηχογραφήσεις & Studio</a>
-    <a href="pc-services.html">PC Building & Repairing</a>
-    <a href="contact.html">Επικοινωνία</a>
-  </nav>
+  <a href="index.html">HOME</a>
+  <a href="web-services.html">WEB SERVICES</a>
+  <a href="online-lessons.html">ONLINE LESSONS</a>
+  <a href="studio.html">RECORDING SERVICES AND STUDIO</a>
+
+  <div style="position: relative; display: inline-block;">
+    <a href="#" style="color: #888; font-weight: bold;">MORE ▾</a>
+    <div style="display: none; position: absolute; background-color: #fff; border: 1px solid #ccc; min-width: 220px; z-index: 1;">
+      <a href="pc-services.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">PC BUILDING AND REPAIRING SERVICES</a>
+      <a href="contact.html" style="display: block; padding: 10px; text-decoration: none; color: #333;">CONTACT</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const moreLink = document.querySelector('nav div a[href="#"]');
+  const dropdown = moreLink.nextElementSibling;
+
+  moreLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!moreLink.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+</script>
 
   <section>
     <h2>Στοιχεία Επικοινωνίας</h2>
